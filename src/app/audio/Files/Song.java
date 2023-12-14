@@ -17,12 +17,15 @@ public final class Song extends AudioFile {
 
 
 
-    public Song(String name, Integer duration) {
+    public Song(final String name, final Integer duration) {
         super(name, duration);
     }
 
-    public Song(String name, Integer duration, String album, ArrayList<String> tags, String lyrics,
-                String genre, Integer releaseYear, String artist) {
+    public Song(final String name, final Integer duration,
+                final String album, final ArrayList<String> tags,
+                final String lyrics,
+                final String genre, final Integer releaseYear,
+                final String artist) {
         super(name, duration);
         this.album = album;
         this.tags = tags;
@@ -34,18 +37,18 @@ public final class Song extends AudioFile {
     }
 
     @Override
-    public boolean matchesAlbum(String album) {
-        return this.getAlbum().equalsIgnoreCase(album);
+    public boolean matchesAlbum(final String albumMatched) {
+        return this.getAlbum().equalsIgnoreCase(albumMatched);
     }
 
     @Override
-    public boolean matchesTags(ArrayList<String> tags) {
+    public boolean matchesTags(final ArrayList<String> tagsMatched) {
         List<String> songTags = new ArrayList<>();
         for (String tag : this.getTags()) {
             songTags.add(tag.toLowerCase());
         }
 
-        for (String tag : tags) {
+        for (String tag : tagsMatched) {
             if (!songTags.contains(tag.toLowerCase())) {
                 return false;
             }
@@ -53,26 +56,26 @@ public final class Song extends AudioFile {
         return true;
     }
     @Override
-    public boolean matchesLyrics(String lyrics) {
-        return this.getLyrics().toLowerCase().contains(lyrics.toLowerCase());
+    public boolean matchesLyrics(final String lyricsMatched) {
+        return this.getLyrics().toLowerCase().contains(lyricsMatched.toLowerCase());
     }
 
     @Override
-    public boolean matchesGenre(String genre) {
-        return this.getGenre().equalsIgnoreCase(genre);
+    public boolean matchesGenre(final String genreMatched) {
+        return this.getGenre().equalsIgnoreCase(genreMatched);
     }
 
     @Override
-    public boolean matchesArtist(String artist) {
-        return this.getArtist().equalsIgnoreCase(artist);
+    public boolean matchesArtist(final String artistMatched) {
+        return this.getArtist().equalsIgnoreCase(artistMatched);
     }
 
     @Override
-    public boolean matchesReleaseYear(String releaseYear) {
-        return filterByYear(this.getReleaseYear(), releaseYear);
+    public boolean matchesReleaseYear(final String releaseYearMatched) {
+        return filterByYear(this.getReleaseYear(), releaseYearMatched);
     }
 
-    private static boolean filterByYear(int year, String query) {
+    private static boolean filterByYear(final int year, final String query) {
         if (query.startsWith("<")) {
             return year < Integer.parseInt(query.substring(1));
         } else if (query.startsWith(">")) {
@@ -82,11 +85,15 @@ public final class Song extends AudioFile {
         }
     }
 
-
+    /**
+     * Increments the like count for this entity.
+     */
     public void like() {
         likes++;
     }
-
+    /**
+     * Decrements the like count for this entity.
+     */
     public void dislike() {
         likes--;
     }

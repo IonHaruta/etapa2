@@ -26,7 +26,7 @@
   "command" : "addAlbum",
   "user" : "melodymaster",
   "timestamp" : 35,
-  "message" : "melodymaster has added new album successfully."
+  "message" : "melodymaster has added a new album successfully."
 }, {
   "command" : "showAlbums",
   "timestamp" : 40,

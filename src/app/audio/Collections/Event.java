@@ -3,14 +3,17 @@ package app.audio.Collections;
 import app.audio.Files.AudioFile;
 import lombok.Getter;
 
-public class Event extends AudioCollection{
+public final class Event extends AudioCollection {
     private String name;
     @Getter
     private String description;
     @Getter
     private String date;
 
-    public Event(String name, String owner, String name1, String description, String date) {
+    public Event(final String name,
+                 final String owner,
+                 final String name1,
+                 final String description, final String date) {
         super(name, owner);
         this.name = name1;
         this.description = description;
@@ -23,7 +26,7 @@ public class Event extends AudioCollection{
     }
 
     @Override
-    public AudioFile getTrackByIndex(int index) {
+    public AudioFile getTrackByIndex(final int index) {
         return null;
     }
 
@@ -32,15 +35,15 @@ public class Event extends AudioCollection{
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
-    public void setDate(String date) {
+    public void setDate(final String date) {
         this.date = date;
     }
 }

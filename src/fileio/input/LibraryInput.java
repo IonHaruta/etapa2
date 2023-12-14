@@ -15,7 +15,7 @@ public final class LibraryInput {
         return artists;
     }
 
-    public void setArtists(ArrayList<ArtistInput> artists) {
+    public void setArtists(final ArrayList<ArtistInput> artists) {
         this.artists = artists;
     }
 
@@ -23,7 +23,7 @@ public final class LibraryInput {
         return songs;
     }
 
-    public void setSongs(ArrayList<SongInput> songs) {
+    public void setSongs(final ArrayList<SongInput> songs) {
         this.songs = songs;
     }
 
@@ -31,7 +31,7 @@ public final class LibraryInput {
         return podcasts;
     }
 
-    public void setPodcasts(ArrayList<PodcastInput> podcasts) {
+    public void setPodcasts(final ArrayList<PodcastInput> podcasts) {
         this.podcasts = podcasts;
     }
 
@@ -39,16 +39,16 @@ public final class LibraryInput {
         return users;
     }
 
-    public void setUsers(ArrayList<UserInput> users) {
+    public void setUsers(final ArrayList<UserInput> users) {
         this.users = users;
     }
 
     @Override
     public String toString() {
-        return "LibraryInput{" +
-                "songs=" + songs +
-                ", podcasts=" + podcasts +
-                ", users=" + users +
-                '}';
+        return "LibraryInput{"
+                + "songs=" + songs
+                + ", podcasts=" + podcasts
+                + ", users=" + users
+                + '}';
     }
 }

@@ -3,14 +3,22 @@ package app.searchBar;
 
 import app.Admin;
 import app.audio.LibraryEntry;
-import app.user.Artist;
 import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static app.searchBar.FilterUtils.*;
+//import static app.searchBar.FilterUtils.*;
 import static app.searchBar.FilterUtils.filterByFollowers;
+import static app.searchBar.FilterUtils.filterByName;
+import static app.searchBar.FilterUtils.filterByAlbum;
+import static app.searchBar.FilterUtils.filterByArtist;
+import static app.searchBar.FilterUtils.filterByGenre;
+import static app.searchBar.FilterUtils.filterByLyrics;
+import static app.searchBar.FilterUtils.filterByOwner;
+import static app.searchBar.FilterUtils.filterByPlaylistVisibility;
+import static app.searchBar.FilterUtils.filterByReleaseYear;
+import static app.searchBar.FilterUtils.filterByTags;
 
 public class SearchBar {
     private List<LibraryEntry> results;
@@ -22,16 +30,32 @@ public class SearchBar {
     @Getter
     private LibraryEntry lastSelected;
 
-    public SearchBar(String user) {
+    public SearchBar(final String user) {
         this.results = new ArrayList<>();
         this.user = user;
     }
-
+    /**
+     * Clears the selection in the search bar.
+     * Subclasses should override this method to provide
+     * additional behavior when clearing the selection.
+     */
     public void clearSelection() {
         lastSelected = null;
         lastSearchType = null;
     }
-    public List<LibraryEntry> search(Filters filters, String type) {
+    /**
+     * Searches for library entries based on specified filters and type.
+     *
+     * @param filters The filters to apply to the search.
+     * Use {@code null} or leave fields empty for no filtering.
+     * @param type    The type of library entries to search for ("song", "playlist", or "podcast").
+     * @return A list of filtered library entries based on the provided filters and type.
+     *         The results are limited to a maximum number defined by {@code MAX_RESULTS}.
+     * @throws IllegalArgumentException If an invalid type is provided.
+     * @see Filters
+     * @see LibraryEntry
+     */
+    public List<LibraryEntry> search(final Filters filters, final String type) {
         List<LibraryEntry> entries;
 
         switch (type) {
@@ -109,8 +133,15 @@ public class SearchBar {
         this.lastSearchType = type;
         return this.results;
     }
-
-    public LibraryEntry select(Integer itemNumber) {
+    /**
+     * Selects a library entry from the search results based on the provided item number.
+     *
+     * @param itemNumber The item number representing
+     *the position of the entry in the search results.
+     * @return The selected library entry. Returns {@code null} if the item number is out of bounds.
+     * @see LibraryEntry
+     */
+    public LibraryEntry select(final Integer itemNumber) {
         if (this.results.size() < itemNumber) {
             results.clear();
 

@@ -1,25 +1,23 @@
 package app.audio.Collections;
 
 import app.audio.Files.AudioFile;
-import app.audio.Files.Song;
-import app.user.Artist;
 import fileio.input.SongInput;
 
 import java.util.ArrayList;
 
-public class Album extends AudioCollection{
+public final class Album extends AudioCollection {
     private ArrayList<SongInput> songs;
 
     public ArrayList<SongInput> getSongs() {
         return songs;
     }
 
-    public void setSongs(ArrayList<SongInput> songs) {
+    public void setSongs(final ArrayList<SongInput> songs) {
         this.songs = songs;
     }
 
 
-    public Album(String name, String owner, ArrayList<SongInput> songs) {
+    public Album(final String name, final String owner, final ArrayList<SongInput> songs) {
         super(name, owner);
         this.songs = songs;
     }
@@ -30,7 +28,7 @@ public class Album extends AudioCollection{
     }
 
     @Override
-    public AudioFile getTrackByIndex(int index) {
+    public AudioFile getTrackByIndex(final int index) {
         return null;
     }
 
