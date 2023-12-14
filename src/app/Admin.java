@@ -42,6 +42,10 @@ public final class Admin {
         timestamp = 0;
     }
 
+    public static void resetArtist(){
+        artists.clear();
+    }
+
     /**
      * Gets the singleton instance of the Admin class.
      *

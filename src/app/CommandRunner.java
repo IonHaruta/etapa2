@@ -1,8 +1,6 @@
 package app;
 
-import app.audio.Collections.Album;
-import app.audio.Collections.Playlist;
-import app.audio.Collections.PlaylistOutput;
+import app.audio.Collections.*;
 import app.audio.Files.Song;
 import app.player.PlayerStats;
 import app.searchBar.Filters;
@@ -624,6 +622,7 @@ public final class CommandRunner {
             case "ArtistPage":
                 int countAlbum = 0;
                 int countMerch = 0;
+                int countEvent = 0;
                 message = "Albums:\n\t[";
                 Artist artist = (Artist) Admin.getUser(user.getLastSearchedArtist());
                 for (Album album : artist.getAlbums()) {
@@ -634,17 +633,31 @@ public final class CommandRunner {
                     message = message.substring(0, message.length() - 2);
                 }
                 message += "]\n\nMerch:\n\t[";
-
+                for (Merch merch : artist.getMerches()) {
+                    message += merch.getName() + " - " + merch.getPrice() + ":\n\t" + merch.getDescription() + ", ";
+                    countMerch++;
+                }
                 if (countMerch != 0) {
                     message = message.substring(0, message.length() - 2);
                 }
-                message += "]\n\nEvent:\n\t[";
+                message += "]\n\nEvents:\n\t[";
+                for (Event event : artist.getEvents()) {
+                    message += event.getName() + " - " + event.getDate() + ":\n\t" + event.getDescription() + ", ";
+                    countEvent++;
+                }
+                if (countEvent != 0) {
+                    message = message.substring(0, message.length() - 2);
+                }
+                message += "]";
 
                 break;
             case "HostPage":
                 break;
             default:
                 break;
+        }
+        if (!user.isStatus()){
+            message = user.getUsername() + " is offline.";
         }
 
         ObjectNode objectNode = objectMapper.createObjectNode();
@@ -671,6 +684,27 @@ public final class CommandRunner {
             if (user.getType() != null && user.getType().equals("artist")) {
                 Artist artist = (Artist) user;
                 message = artist.addEvent(commandInput);
+            } else {
+                message = commandInput.getUsername() + " is not an artist.";
+            }
+        } else {
+            message = "The username " + commandInput.getUsername() + " doesn't exist.";
+        }
+        ObjectNode objectNode = objectMapper.createObjectNode();
+        objectNode.put("command", commandInput.getCommand());
+        objectNode.put("user", commandInput.getUsername());
+        objectNode.put("timestamp", commandInput.getTimestamp());
+        objectNode.put("message", message);
+        return objectNode;
+    }
+
+    public static ObjectNode addMerch(final CommandInput commandInput) {
+        User user = Admin.getUser(commandInput.getUsername());
+        String message;
+        if (user != null) {
+            if (user.getType() != null && user.getType().equals("artist")) {
+                Artist artist = (Artist) user;
+                message = artist.addMerch(commandInput);
             } else {
                 message = commandInput.getUsername() + " is not an artist.";
             }

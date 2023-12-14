@@ -3,8 +3,11 @@ package app.user;
 import app.Admin;
 import app.audio.Collections.Album;
 import app.audio.Collections.Event;
+import app.audio.Collections.Merch;
 import fileio.input.CommandInput;
 import fileio.input.SongInput;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,7 +17,12 @@ public final class Artist extends User {
     private String name;
     private Integer releaseYear;
     private ArrayList<Album> albums;
+    @Getter
+    @Setter
     private ArrayList<Event> events;
+    @Getter
+    @Setter
+    private ArrayList<Merch> merches;
 
 
     public Artist(final String username, final int age,
@@ -22,6 +30,7 @@ public final class Artist extends User {
         super(username, age, city, type);
         albums = new ArrayList<>();
         events = new ArrayList<>();
+        merches = new ArrayList<>();
     }
 
     @Override
@@ -80,7 +89,7 @@ public final class Artist extends User {
         this.albums.add(album);
         Admin.getAlbums().add(album);
         Admin.addSongs(album.getSongs());
-        return commandInput.getUsername() + " has added a new album successfully.";
+        return commandInput.getUsername() + " has added new album successfully.";
     }
     /**
      * Adds a new event to the artist's collection.
@@ -101,6 +110,25 @@ public final class Artist extends User {
 
         events.add(event);
         return commandInput.getUsername() + " has added new event successfully.";
+    }
+
+    public String addMerch(final CommandInput commandInput) {
+        Merch merch = new Merch(commandInput.getName(),
+                commandInput.getUsername(),
+                commandInput.getPrice(),
+                commandInput.getName(),
+                commandInput.getDescription());
+        if (commandInput.getPrice() < 0) {
+            return "Price for merchandise can not be negative.";
+        }
+        for (Merch merch1 : this.merches) {
+            if (merch1.getName().contains(commandInput.getName())) {
+                return commandInput.getUsername() + " has merchandise with the same name.";
+            }
+        }
+
+        merches.add(merch);
+        return commandInput.getUsername() + " has added new merchandise successfully.";
     }
 
 

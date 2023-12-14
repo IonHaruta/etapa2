@@ -26,7 +26,7 @@
   "command" : "addAlbum",
   "user" : "melodymaster",
   "timestamp" : 35,
-  "message" : "melodymaster has added a new album successfully."
+  "message" : "melodymaster has added new album successfully."
 }, {
   "command" : "showAlbums",
   "timestamp" : 40,
@@ -56,8 +56,8 @@
   "command" : "search",
   "user" : "alice22",
   "timestamp" : 65,
-  "message" : "Search returned 4 results",
-  "results" : [ "melodymaster", "melodymaster", "melodymaster", "melodymaster" ]
+  "message" : "Search returned 1 results",
+  "results" : [ "melodymaster" ]
 }, {
   "command" : "select",
   "user" : "alice22",
@@ -67,12 +67,37 @@
   "command" : "printCurrentPage",
   "timestamp" : 75,
   "user" : "alice22",
-  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[]\n\nEvent:\n\t["
+  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[]\n\nEvents:\n\t[Harmonic Convergence - 15-06-2022:\n\tA night of mesmerizing melodies and soundscapes., Echoes of the Future - 23-09-2022:\n\tExploring futuristic sounds in a live performance.]"
+}, {
+  "command" : "addMerch",
+  "user" : "melodymaster",
+  "timestamp" : 80,
+  "message" : "melodymaster has added new merchandise successfully."
+}, {
+  "command" : "addMerch",
+  "user" : "melodymaster",
+  "timestamp" : 85,
+  "message" : "melodymaster has added new merchandise successfully."
 }, {
   "command" : "switchConnectionStatus",
   "user" : "alice22",
   "timestamp" : 87,
   "message" : "alice22 has changed status successfully."
+}, {
+  "command" : "addMerch",
+  "user" : "melodymaster",
+  "timestamp" : 90,
+  "message" : "Price for merchandise can not be negative."
+}, {
+  "command" : "addMerch",
+  "user" : "Melodic Hoodie",
+  "timestamp" : 95,
+  "message" : "The username Melodic Hoodie doesn't exist."
+}, {
+  "command" : "addMerch",
+  "user" : "melodymaster",
+  "timestamp" : 100,
+  "message" : "melodymaster has merchandise with the same name."
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -83,8 +108,8 @@
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 105,
-  "message" : "Search returned 4 results",
-  "results" : [ "melodymaster", "melodymaster", "melodymaster", "melodymaster" ]
+  "message" : "Search returned 1 results",
+  "results" : [ "melodymaster" ]
 }, {
   "command" : "select",
   "user" : "bob35",
@@ -94,10 +119,10 @@
   "command" : "printCurrentPage",
   "timestamp" : 115,
   "user" : "alice22",
-  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[]\n\nEvent:\n\t["
+  "message" : "alice22 is offline."
 }, {
   "command" : "printCurrentPage",
   "timestamp" : 120,
   "user" : "bob35",
-  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[]\n\nEvent:\n\t["
+  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[Harmonic T-Shirt - 25:\n\tLimited edition T-shirt featuring unique harmonic designs., Echoes Cap - 20:\n\tStylish cap with the 'Echoes of Harmony' album artwork.]\n\nEvents:\n\t[Harmonic Convergence - 15-06-2022:\n\tA night of mesmerizing melodies and soundscapes., Echoes of the Future - 23-09-2022:\n\tExploring futuristic sounds in a live performance.]"
 } ]

@@ -1,8 +1,17 @@
 Starting audit...
-[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/CommandRunner.java:22:1: Utility classes should not have a public or default constructor. [HideUtilityClassConstructor]
-[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/CommandRunner.java:23:11: 'static' modifier out of order with the JLS suggestions. [ModifierOrder]
-[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/CommandRunner.java:23:31: Name 'objectMapper' must match pattern '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'. [ConstantName]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/Admin.java:45:5: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/Admin.java:45:37: '{' is not preceded with whitespace. [WhitespaceAround]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/CommandRunner.java:3:29: Using the '.*' form of import should be avoided - app.audio.Collections.*. [AvoidStarImport]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/CommandRunner.java:20:1: Utility classes should not have a public or default constructor. [HideUtilityClassConstructor]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/CommandRunner.java:21:11: 'static' modifier out of order with the JLS suggestions. [ModifierOrder]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/CommandRunner.java:21:31: Name 'objectMapper' must match pattern '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'. [ConstantName]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/CommandRunner.java:637: Line is longer than 100 characters (found 116). [LineLength]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/CommandRunner.java:645: Line is longer than 100 characters (found 115). [LineLength]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/CommandRunner.java:659:30: '{' is not preceded with whitespace. [WhitespaceAround]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/CommandRunner.java:701:5: Missing a Javadoc comment. [MissingJavadocMethod]
 [ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/user/User.java:348:49: Name 'Id' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/user/Artist.java:115:5: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/audio/Collections/Merch.java:7:49: '{' is not preceded with whitespace. [WhitespaceAround]
 [ERROR] /Users/ionharuta/Desktop/oop-project-2023-main/etapa2/./src/app/player/Player.java:162:32: Parameter time should be final. [FinalParameters]
 Audit done.
-Checkstyle ends with 5 errors.
+Checkstyle ends with 14 errors.

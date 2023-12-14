@@ -74,10 +74,10 @@ public final class Main {
                                                                + "library/library.json"),
                                                                LibraryInput.class);
         CommandInput[] commands = objectMapper.readValue(new File(CheckerConstants.TESTS_PATH
-                + "test03_etapa2.json"), CommandInput[].class);
+                + "test04_etapa2.json"), CommandInput[].class);
 
         ArrayNode outputs = objectMapper.createArrayNode();
-
+        Admin.resetArtist();
         Admin.setUsers(library.getUsers());
         Admin.setSongs(library.getSongs());
         Admin.setPodcasts(library.getPodcasts());
@@ -118,6 +118,7 @@ public final class Main {
                 case "showAlbums" -> outputs.add(CommandRunner.showAlbums(command));
                 case "printCurrentPage" -> outputs.add(CommandRunner.printCurrentPage(command));
                 case "addEvent" -> outputs.add(CommandRunner.addEvent(command));
+                case "addMerch" -> outputs.add(CommandRunner.addMerch(command));
                 default -> System.out.println("Invalid command " + commandName);
             }
         }
